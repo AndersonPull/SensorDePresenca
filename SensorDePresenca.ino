@@ -5,9 +5,12 @@
 
 #define SERVICE_UUID "4fafc201-1fb5-459e-8fcc-c5c9c331914b"
 #define CHARACTERISTIC_UUID "beb5483e-36e1-4688-b7f5-ea07361b26a8"
+#define pinPIR 7
 
 void setup() {
   Serial.begin(115200);
+
+  pinMode(pinPIR,INPUT);
 
   BLEDevice::init("DrSensor");
   BLEServer *pServer = BLEDevice::createServer();
@@ -31,9 +34,15 @@ void setup() {
 }
 
 void loop() {
-  //TODO fazer o if do sensor:
-  //TODO tirar foto com esp32cam
-  //TODO enviar via bluetooth para o device conectado
+  bool ValuePIR = digitalRead(pinPIR); 
+  
+  if(ValuePIR)
+  {
+    Serial.println("Dedectado...");
+    //TODO tirar foto com esp32cam
+    //TODO enviar via bluetooth para o device conectado
+  }
+  
   delay(2000);
 }
 
