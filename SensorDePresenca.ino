@@ -38,7 +38,7 @@ void loop() {
   
   if(ValuePIR)
   {
-    Serial.println("Dedectado...");
+    Serial.println("Detectado...");
     //TODO tirar foto com esp32cam
     //TODO enviar via bluetooth para o device conectado
   }
